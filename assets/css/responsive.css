@@ -1,0 +1,1101 @@
+/*==================================
+  Media CSS
+====================================*/
+
+@media screen and (min-width: 37.5em) {
+    .menu-toggle {
+        display: none;
+    }
+
+    .main-navigation ul {
+        display: flex;
+    }
+}
+
+@media (max-width: 1023px) {
+    .right-float-post {
+        display: none;
+    }
+
+    .left-float-post {
+        display: none;
+    }
+}
+
+@media (max-width: 1199px) {
+    .thumb-blog .slick-prev {
+        left: 415px;
+    }
+
+    .thumb-blog .slick-next {
+        right: 415px;
+    }
+
+    .full-blog .full-blog-holder .item .caption {
+        width: 500px;
+        padding: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    #main-menu li a.nav-link.has-submenu:before,
+    #side-menu li a.nav-link.has-submenu:before {
+        position: absolute;
+        content: "\f107";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        right: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+
+    #main-menu li ul li a.has-submenu:after,
+    #side-menu li ul li a.has-submenu:after {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+
+    #main-menu li a.nav-link.has-submenu.highlighted .sub-arrow,
+    #main-menu li a.nav-link.has-submenu .sub-arrow,
+    #side-menu li a.nav-link.has-submenu.highlighted .sub-arrow,
+    #side-menu li a.nav-link.has-submenu .sub-arrow {
+        content: "";
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        border-width: 9px;
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent #ffffff transparent;
+        visibility: hidden;
+        transition: visibility 0s;
+    }
+
+    #main-menu li a.nav-link.has-submenu.highlighted .sub-arrow,
+    #main-menu li a.has-submenu:hover .sub-arrow,
+    #side-menu li a.nav-link.has-submenu.highlighted .sub-arrow,
+    #side-menu li a.has-submenu:hover .sub-arrow {
+        visibility: visible;
+        transition: visibility 0s linear 0.3s;
+    }
+}
+
+@media (max-width: 1200px) {
+
+    body .home-section.static-page .container,
+    body .inside-page .container {
+        --wp--style--global--content-size: 600px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 640px !important;
+        /*  this setting is the width of alignide */
+    }
+
+    body {
+        --wp--style--global--content-size: 810px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 970px !important;
+        /*  this setting is the width of alignwide */
+    }
+}
+
+@media (max-width: 991px) {
+
+
+    .home-section h2.about-author-title, .home-section h2.main-title {
+        font-size: 2rem;
+    }
+    .extra-info, .social-share {
+        font-size: 13px;
+    }
+    p.excerpt,
+    .category-tag li > a,
+    body .detail-page-body, .home-section p,
+    .sidebar-block  {
+        font-size: 1.0rem !important;
+    }
+    h3.title a, .detail-page-body h3.comment-reply-title {
+        font-size: 1.35rem;
+    }
+    .detail-page-body h2.comments-title {
+        font-size: 1.15rem;   
+    }
+    .detail-page-body h2.other-title {
+        font-size: 1.35rem;    
+    }
+    footer .footer-news h2.f-title {
+        font-size: 1.35rem;
+    }
+
+    body .home-section.static-page .container,
+    body .inside-page .container {
+        --wp--style--global--content-size: 380px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 410px !important;
+        /*  this setting is the width of alignide */
+    }
+
+    body {
+        --wp--style--global--content-size: 690px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 740px !important;
+        /*  this setting is the width of alignwide */
+    }
+
+    p.site-title,
+    h1.site-title {
+        font-size: 4vw;
+    }
+
+    .header .top-header .logo img {
+        max-height: 60px;
+    }
+
+    .logo p.site-description {
+        margin: auto;
+    }
+
+    .header .site-navigation {
+        background: #fff;
+        margin: 0;
+    }
+
+    .header .site-navigation .social-links {
+        display: none;
+    }
+
+    .header .site-navigation .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .s-links-panel .sidepanel-button-1 {
+        display: none;
+    }
+
+    .header #main-menu {
+        margin: 20px 0 0;
+        width: 100%;
+        background: #000;
+        box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+    }
+
+    .sm-clean ul {
+        background: #fff;
+        max-width: unset !important;
+        margin-left: unset !important;
+    }
+
+    .sm-clean .mega-menu ul {
+        max-width: 20em !important;
+    }
+
+
+    .header .site-navigation .logo {
+        display: block;
+    }
+
+    #main-menu li a,
+    #side-menu li a {
+        font-size: 16px;
+    }
+
+    #main-menu li ul li a:hover,
+    #side-menu li ul li a:hover {
+        color: #000;
+    }
+
+    .navbar .container {
+        padding: 0 15px;
+    }
+
+    #nav-icon span {
+        background: #000;
+    }
+
+    #main-menu li a.nav-link {
+        color: #fff;
+    }
+
+
+    .banner-author-holder .banner-author-info {
+        max-width: 700px;
+        top: 25%;
+    }
+
+    .banner-author-holder .banner-author-info p {
+        font-size: 2.2vw;
+    }
+
+    .banner-author-holder .banner-author-info h1 a span {
+        font-size: 3.8vw;
+    }
+
+    .banner-author-holder .banner-author-info h1 a {
+        font-size: 6vw;
+    }
+
+    .home-section {
+        padding: 70px 0;
+    }
+
+    [class*="about-author-"] {
+        padding: 0;
+    }
+
+    [class*="about-author-"] .about-author-holder {
+        width: 700px;
+    }
+
+    [class*="about-author-"] .about-author-holder .img-holder {
+        width: 170px;
+        height: 170px;
+        margin: auto;
+    }
+
+    [class*="about-author-"] .about-author-holder .info-holder {
+        width: 360px;
+    }
+
+    .thumb-blog .slick-prev {
+        left: 295px;
+    }
+
+    .thumb-blog .slick-next {
+        right: 295px;
+    }
+
+    .thumb-blog {
+        margin: 0 0 100px;
+    }
+
+    .main-title {
+        margin: 0 0 30px;
+    }
+
+    .full-blog .slick-arrow {
+        top: 50%;
+    }
+
+    .full-blog .slick-prev {
+        left: 20px;
+    }
+
+    .full-blog .slick-next {
+        right: 20px;
+        left: auto;
+    }
+
+    .full-blog .full-blog-holder .item .caption {
+        width: 678px;
+        padding: 30px;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+    }
+
+    .inline-blog .blog-slider-thmb {
+        margin: 0 -15px;
+    }
+
+    .inline-blog .blog-slider-thmb .blog-snippet {
+        display: block !important;
+        padding: 0 15px;
+    }
+
+    .inline-blog.list-view .blog-snippet.xs .img-holder {
+        width: auto;
+        margin: 0 0 12px;
+    }
+
+    .inline-blog [class*="col-"] {
+        margin: 0 0 30px;
+    }
+
+    .inline-blog [class*="col-"]:last-child {
+        margin: 0;
+    }
+
+    .inline-blog .slick-arrow {
+        top: 50%;
+    }
+
+    .inline-blog .slick-next {
+        left: auto;
+        right: -15px;
+    }
+
+    .inline-blog .slick-prev {
+        left: -15px;
+    }
+
+    .image-inner-blog {
+        margin: 0px 0 70px;
+    }
+
+    .image-inner-blog:before {
+        width: 550px;
+        height: 300px;
+    }
+
+    .main-blog-holder .masionary-view {
+        column-count: 1;
+    }
+
+    .footer {
+        padding: 20px 0 0;
+    }
+
+    .footer .row {
+        margin-bottom: 50px;
+    }
+
+    .footer .row [class*="col-"] {
+        margin: 0 0 50px;
+    }
+
+    .footer .row [class*="col-"]:last-child {
+        margin: 0;
+    }
+
+    .list-page .list-view .blog-snippet {
+        display: block;
+    }
+
+    .list-page .list-view .blog-snippet .img-holder {
+        margin: 0 0 20px;
+        width: 100%;
+    }
+
+    .list-page .grid-view {
+        display: block;
+    }
+
+    .list-page .grid-view .blog-snippet {
+        border-bottom: 1px solid #ddd;
+        padding: 0 0 30px;
+        margin: 0 0 30px;
+    }
+
+    .list-page .grid-view .blog-snippet:last-child {
+        border: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .list-page .grid-view.bordered .blog-snippet {
+        padding: 0;
+        border: 1px solid #ddd;
+    }
+
+    h1 {
+        font-size: 34px;
+    }
+
+    blockquote {
+        padding: 20px;
+    }
+
+    .detail-author-block .title-share {
+        display: block;
+    }
+
+    .detail-author-block {
+        margin: 0 0 50px;
+    }
+
+    .page-404 {
+        padding: 50px 0;
+    }
+
+    .page-404 .row {
+        margin-bottom: 50px;
+    }
+
+    .page-404 .page-text {
+        margin: 0 0 30px;
+    }
+
+    h1,
+    .h1 {
+        font-size: 1.8rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 1.7rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: 1.6rem;
+    }
+
+    h4,
+    .h4 {
+        font-size: 1.5rem;
+    }
+
+    h5,
+    .h5 {
+        font-size: 1.4rem;
+    }
+
+    h6,
+    .h6 {
+        font-size: 1.3rem;
+    }
+
+    .home-section h3,
+    .sidebar-title h2,
+    .sidebar-title h3,
+    .sidebar-title h4,
+    .sidebar-title h5,
+    .sidebar-title h6 {
+        font-size: 1.4rem;
+    }
+
+    .sidebar-title h3 {
+        line-height: 1.2;
+    }
+
+    .sidebar .full-width h3.title {
+        margin-top: 40px;
+    }
+
+    .blog-snippet .title {
+        margin: 0 0 0;
+    }
+
+    .footer .f-logo img {
+        max-height: 70px;
+    }
+
+    .footer .footer-news {
+        padding-top: initial;
+        padding-bottom: initial;
+    }
+
+    .footer .f-logo {
+        margin: 0 0 30px;
+    }
+
+    .footer .row [class*="col-"] {
+        margin: 0 0 10px;
+    }
+
+    .footer .news1 .blog-snippet,
+    .footer .news2 .blog-snippet {
+        margin: 0 0 20px;
+    }
+
+    .banner-author-info .logo img {
+        max-width: 30vw;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .home-section h2.about-author-title, .home-section h2.main-title {
+        font-size: 1.9rem;
+    }
+    .extra-info, .social-share {
+        font-size: 13px;
+    }
+    p.excerpt,
+    .category-tag li > a,
+    body .detail-page-body, .home-section p,
+    .sidebar-block  {
+        font-size: 1rem !important;
+    }
+    h3.title a, .detail-page-body h3.comment-reply-title {
+        font-size: 1.3rem;
+    }
+    .detail-page-body h2.comments-title {
+        font-size: 1.1rem;   
+    }
+    .detail-page-body h2.other-title {
+        font-size: 1.3rem;    
+    }
+    footer .footer-news h2.f-title {
+        font-size: 1.3rem;
+    }
+
+    body .home-section.static-page .container,
+    body .inside-page .container {
+        --wp--style--global--content-size: 400px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 450px !important;
+        /*  this setting is the width of alignide */
+    }
+
+    body {
+        --wp--style--global--content-size: 550px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 580px !important;
+        /*  this setting is the width of alignwide */
+    }
+
+    .advertise {
+        padding: 30px;
+    }
+
+    .header .top-header .logo img {
+        max-height: 50px;
+    }
+
+    .home-section {
+        padding: 50px 0;
+    }
+
+    p.site-title,
+    h1.site-title {
+        font-size: 4vw;
+    }
+
+    .banner-author-holder .banner-author-info p {
+        font-size: 2.6vw;
+    }
+
+    .banner-author-holder .banner-author-info h1 a span {
+        font-size: 4.5vw;
+    }
+
+    .banner-author-holder .banner-author-info {
+        top: 30%;
+        max-width: 510px;
+    }
+
+    .banner-author-holder .banner-author-info.has_video {
+        top: 35%;
+    }
+
+    [class*="about-author-"] {
+        padding: 0;
+    }
+
+    [class*="about-author-"] .about-author-holder {
+        width: 95%;
+        padding: 25px;
+        justify-content: center;
+        display: block;
+    }
+
+    [class*="about-author-"] .about-author-holder .info-holder {
+        width: 100%;
+        margin: 0;
+    }
+
+    [class*="about-author-"] .about-author-holder .about-author-title {
+        margin: 0 0 12px;
+        text-align: left;
+    }
+
+    .thumb-blog {
+        margin: 0;
+    }
+
+    .thumb-blog .slick-arrow {
+        top: 125px;
+    }
+
+    .thumb-blog .slick-prev {
+        left: -15px;
+    }
+
+    .thumb-blog .slick-next {
+        right: -15px;
+    }
+
+    .full-blog .full-blog-holder .item .caption {
+        width: 100%;
+        position: static;
+    }
+
+    .full-blog .slick-arrow {
+        top: 20%;
+    }
+
+    .full-blog .slick-list {
+        padding: 0 0 10px;
+    }
+
+    .full-blog .slick-prev {
+        left: 0;
+    }
+
+    .full-blog .slick-next {
+        right: 0;
+    }
+
+    .inline-blog .blog-slider-main .blog-snippet {
+        display: block !important;
+    }
+
+    .inline-blog .blog-slider-main .blog-snippet .img-holder {
+        width: auto;
+        margin: 0 0 20px;
+    }
+
+    .inline-blog .blog-slider-thmb {
+        display: none;
+    }
+
+    .inline-blog [class*="col-"] {
+        margin: 0;
+    }
+
+    .image-inner-blog {
+        margin: 0 0 50px;
+    }
+
+    .image-inner-blog:before {
+        width: 400px;
+        height: 300px;
+    }
+
+    aside {
+        margin: 30px 0 0;
+    }
+
+    .footer .list-view .blog-snippet.hasImage {
+        grid-template-columns: 1fr 4fr;
+    }
+
+    .map {
+        margin: 0 0 50px;
+    }
+
+    .contact-page .row+.map {
+        margin: 50px 0 0;
+    }
+
+    .contact-page .row [class*="col-"] {
+        margin: 0 0 50px;
+    }
+
+    .contact-page .row [class*="col-"]:last-child {
+        margin: 0;
+    }
+
+    .contact-page form .row [class*="col-"] {
+        margin: 0 0 30px;
+    }
+
+    .breadcrumb-holder,
+    .inside-page {
+        padding: 40px 0;
+    }
+
+    .page-404 .row {
+        margin-bottom: 30px;
+    }
+
+    .page-404 .page-text {
+        font-size: 100px;
+    }
+
+    .page-404 p {
+        margin: 0 20px 20px;
+    }
+
+    .info-holder .about-author-title {
+        text-align: center;
+    }
+
+    .banner-author-info .logo img {
+        max-width: 30vw;
+    }
+
+    .extra-info li {
+        margin: 0 16px 5px 0;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .home-section h2.about-author-title, .home-section h2.main-title {
+        font-size: 1.4rem;
+    }
+    .extra-info, .social-share {
+        font-size: 12px;
+    }
+    p.excerpt,
+    .category-tag li > a,
+    body .detail-page-body, .home-section p,
+    .sidebar-block  {
+        font-size: 0.9rem !important;
+    }
+    h3.title a, .detail-page-body h3.comment-reply-title {
+        font-size: 1.2rem;
+    }
+    .detail-page-body h2.comments-title {
+        font-size: 1.05rem;   
+    }
+    .detail-page-body h2.other-title {
+        font-size: 1.225rem;    
+    }
+    footer .footer-news h2.f-title {
+        font-size: 1.25rem;
+    }
+
+    body .home-section.static-page .container,
+    body .inside-page .container {
+        --wp--style--global--content-size: 310px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 330px !important;
+        /*  this setting is the width of alignide */
+    }
+
+    body {
+        --wp--style--global--content-size: 310px !important;
+        /*  this setting is the width of other div, p etc which do not have gutenberg width */
+        --wp--style--global--wide-size: 350px !important;
+        /*  this setting is the width of alignwide */
+    }
+
+    .advertise {
+        padding: 15px;
+    }
+
+    p.site-title,
+    h1.site-title {
+        font-size: 6vw;
+    }
+
+    p.site-title {
+        line-height: 1.2;
+    }
+
+    .header .t-header-holder .s-links-panel {
+        display: none;
+    }
+
+    .header .site-navigation .social-links {
+        /* padding: 0 25px; */
+        display: flex;
+    }
+
+    .banner-author-holder-left {
+        bottom: -10vw;
+    }
+
+    .banner-author-holder-right {
+        bottom: -17vw;
+    }
+
+    .container,
+    .container-sm {
+        max-width: 540px;
+    }
+
+    [class*="about-author-"] .about-author-holder img {
+        border-radius: 0px;
+    }
+
+    [class*="about-author-"] .about-author-holder .img-holder {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    [class*="about-author-"] .about-author-holder {
+        width: 80%;
+    }
+
+    [class*="about-author-"] .about-author-holder .img-holder {
+        margin: 0px 0 20px;
+    }
+
+    .banner-author-holder .banner-author-info h1 a {
+        font-size: 7.5vw;
+        pointer-events: none;
+    }
+
+    .banner-author-info.has_video .logo a {
+        pointer-events: none;
+    }
+
+    .header .top-header {
+        margin: 5px 0;
+    }
+
+    .header .logo {
+        width: unset;
+    }
+
+    .header .t-header-holder {
+        display: block;
+        text-align: center;
+    }
+
+    .header .logo {
+        margin: auto;
+    }
+
+    .header .t-header-holder .logo img {
+        width: 100%;
+    }
+
+    .header .t-header-holder .site-title {
+        margin: auto;
+        padding: 5px 0 5px 0;
+    }
+
+    .header .t-header-holder .s-links-panel .social-links {
+        margin: 0;
+    }
+
+    .top-header .t-header-holder {
+        justify-content: left !important;
+    }
+
+    #main-menu li a,
+    #side-menu li a {
+        font-size: 14px;
+    }
+
+    .site-title-belowlogo h1,
+    .site-title-bysidelogo h1 {
+        line-height: 1.1;
+        font-size: 25px;
+    }
+
+    .site-title-belowlogo p,
+    .site-title-bysidelogo p {
+        font-size: 14px;
+    }
+
+    .top-header p.site-description {
+        font-size: 4vw;
+    }
+
+    .site-title-belowlogo p {
+        text-align: center;
+    }
+
+    .banner-author-info .logo {
+        margin: 0 auto 10px auto;
+    }
+
+    .banner-author-info .logo img {
+        max-width: 30vw;
+    }
+
+    .banner-author-holder .banner-author-info p {
+        font-size: 5vw;
+        line-height: 1.2;
+    }
+
+    .banner-author-holder .banner-author-info h1 a span {
+        font-size: 5vw;
+    }
+
+    .banner-author-holder:before {
+        border-width: 0 0 65px 100vw;
+        top: 95%;
+    }
+
+    .banner-author-holder:after {
+        border-width: 65px 0 0 100vw;
+        top: 95%;
+    }
+
+    .banner-author-holder .banner-author-info.has_video {
+        top: 22%;
+    }
+
+    .banner-author-holder .banner-author-info.has_video .site-description {
+        display: none;
+    }
+
+    .mobile-tab-view-only.site-title-belowlogo {
+        display: block;
+    }
+
+    .desktop-view-only.site-title-belowlogo {
+        display: none;
+    }
+
+    .bread-title {
+        font-size: 1.4rem !important;
+        line-height: 1.1;
+        margin-top: 5px;
+    }
+
+    .breadcrumb {
+        font-size: 14px;
+    }
+
+    .full-blog .slick-arrow {
+        top: 10%;
+    }
+
+    .inline-blog .slick-arrow {
+        top: 30%;
+    }
+
+    .image-inner-blog .slick-list {
+        padding: 30px 0;
+    }
+
+    .image-inner-blog {
+        margin: 0;
+    }
+
+    .image-inner-blog:before {
+        content: none;
+    }
+
+    .detail-author-block .media {
+        display: block;
+    }
+
+    .detail-author-block .media .img-holder {
+        margin: 0 0 15px;
+    }
+
+    .page-404 .page-text span {
+        font-size: 36px;
+    }
+
+    .about-author-holder {
+        justify-content: center;
+    }
+
+    h1,
+    .h1 {
+        font-size: 1.5rem;
+    }
+
+    h2,
+    .h2 {
+        font-size: 1.4rem;
+    }
+
+    h3,
+    .h3 {
+        font-size: 1.3rem;
+    }
+
+    h4,
+    .h4 {
+        font-size: 1.2rem;
+    }
+
+    h5,
+    .h5 {
+        font-size: 1.1rem;
+    }
+
+    h6,
+    .h6 {
+        font-size: 1rem;
+    }
+
+    .home-section h3,
+    .archive h3,
+    .search h3,
+    .sidebar-title h3,
+    .sidebar-title h2,
+    .sidebar-title h3,
+    .sidebar-title h4,
+    .sidebar-title h5,
+    .sidebar-title h6 {
+        font-size: 1.2rem;
+    }
+
+    .sidebar .full-width h3.title {
+        margin-top: 45px;
+    }
+
+    .blog-snippet .title {
+        margin: 0 0 15px;
+    }
+
+    body,
+    button,
+    input,
+    select,
+    optgroup,
+    textarea {
+        line-height: 1;
+        font-size: 0.85em;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    .has-large-font-size {
+        font-size: 1.6rem !important;
+    }
+
+    .has-x-large-font-size {
+        font-size: 1.7rem !important;
+    }
+
+    .footer {
+        padding: 5px 0 0;
+    }
+
+    .footer h2 {
+        font-size: 1.25rem;
+    }
+
+    .footer h3 a{
+        font-size: 1rem !important;
+    }
+
+    .footer .footer-news {
+        padding-top: initial;
+        padding-bottom: initial;
+    }
+
+    .footer .f-logo {
+        margin: 0 0 10px;
+    }
+
+    .footer .row [class*="col-"] {
+        margin: 0 0 0px;
+    }
+
+    .footer .news1 .blog-snippet,
+    .footer .news2 .blog-snippet {
+        margin: 0 0 10px;
+    }
+
+    .footer .f-logo img {
+        max-height: 40px;
+    }
+
+    .extra-info li {
+        margin: 0 12px 5px 0;
+    }
+
+    #main-menu li.fas,
+    #main-menu li.fa,
+    #main-menu li.fab,
+    #main-menu li.far {
+        color: black;
+    }
+}
+
+/* End of Media css */

@@ -1,0 +1,28 @@
+<?php
+/**
+ * Theme optons panel at Theme Customizer
+ *
+ * @package context-blog
+ * @since   1.0.0
+ */
+
+add_action( 'customize_register', 'context_blog_theme_option_register' );
+
+function context_blog_theme_option_register( $wp_customize ) {
+	include get_template_directory() . '/inc/repeater/class-repeater-settings.php';
+	include get_template_directory() . '/inc/repeater/class-control-repeater.php';
+
+	$wp_customize->add_panel(
+		'context_blog_global_settings_panel',
+		array(
+			'priority'       => 23,
+			'capability'     => 'edit_theme_options',
+			'theme_supports' => '',
+			'title'          => __( 'Global settings', 'context-blog' ),
+		)
+	);
+
+	include get_template_directory() . '/inc/customizer/global/common-social-section.php';
+	include get_template_directory() . '/inc/customizer/global/other-section.php';
+
+}
