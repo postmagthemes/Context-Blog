@@ -38,7 +38,7 @@ $wp_customize->add_setting(
 $wp_customize->add_control(
 	'context_blog_footer_content',
 	array(
-		'label'    => 'Write footer memo',
+		'label'    => __( 'Write footer memo', 'context-blog' ),
 		'section'  => 'context_blog_footer_memo_settings',
 		'type'     => 'text',
 		'settings' => 'context_blog_footer_content',
