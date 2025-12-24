@@ -144,6 +144,25 @@ $wp_customize->add_control(
 	)
 );
 
+
+$wp_customize->add_setting(
+	'context_blog_card_slider_excerpt_limit',
+	array(
+		'default'           => 22,
+		'sanitize_callback' => 'absint',
+	)
+);
+
+$wp_customize->add_control(
+	'context_blog_card_slider_excerpt_limit',
+	array(
+		'label'       => esc_html__( 'Excerpt Length', 'context-blog' ),
+		'description' => esc_html__( 'Excerpt Length determines the no of words in short description.', 'context-blog' ),
+		'section'     => 'context_blog_home_card_slider_section',
+		'type'        => 'number',
+	)
+);
+
 $context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ), __( 'excerpt', 'context-blog' ) );
 foreach ( $context_blog_post_taxonomy_arrays as  $context_blog_post_taxonomy ) {
 	if ( $context_blog_post_taxonomy == __( 'category', 'context-blog' ) ) :

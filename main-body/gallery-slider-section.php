@@ -21,9 +21,9 @@ function context_blog_home_gallery_slider_enable() {
 			<?php endif; ?>
 				<div class="row">
 					<div class="col-lg-8">
-						<div class="blog-slider-main" data-aos="fade-left">
+						<div class="blog-slider-main fade-left">
 							<?php
-							$args['posts_per_page']      = absint( get_theme_mod( 'context_blog_gallery_slider_number_of_display' ) );
+							$args['posts_per_page']      = absint( get_theme_mod( 'context_blog_gallery_slider_number_of_display',4 ) );
 							$args['ignore_sticky_posts'] = 1;
 							$args['cat']       = esc_attr( get_theme_mod( 'context_blog_gallery_slider_category_name',0 ) ) ;
 							$args['orderby']             = array(
@@ -46,24 +46,26 @@ function context_blog_home_gallery_slider_enable() {
 					</div>
 
 					<div class="col-lg-4">
-						<div class="blog-slider-thmb" data-aos="fade-up">
+						<div class="blog-slider-thmb fade-up">
 							<?php
-							$args['posts_per_page']      = absint( get_theme_mod( 'context_blog_gallery_slider_number_of_display', '4' ) );
+							$args['posts_per_page']      = absint( get_theme_mod( 'context_blog_gallery_slider_number_of_display', 4 ) );
 							$args['ignore_sticky_posts'] = 1;
 							$args['cat']       = esc_attr( get_theme_mod( 'context_blog_gallery_slider_category_name',0 ) ) ;	
-							$args['orderby']             = 'date';
-							$args['order']               = 'DESC';
-							$blogsloop                   = new WP_Query( $args );
-							if ( $blogsloop->have_posts() ) :
-								while ( $blogsloop->have_posts() ) :
-									$blogsloop->the_post();
+							$args['orderby']             = array(
+								esc_attr( get_theme_mod( 'context_blog_gallery_slider_order', 'date' ) ) => 'DSC',
+								'date' => 'DSC',
+							);
+							$blogsloopthumb = new WP_Query( $args );
+							if ( $blogsloopthumb->have_posts() ) :
+								while ( $blogsloopthumb->have_posts() ) :
+									$blogsloopthumb->the_post();
 									?>
 							<div class="blog-snippet xs">
 									<?php
 									if ( has_post_thumbnail() ) :
 										?>
 									<a href="<?php the_permalink(); ?>" class="img-holder" aria-label='<?php the_title(); ?>'>
-										<?php the_post_thumbnail( 'context-blog-gallery-slider-2-footer-news-100X98' ); ?>
+										<?php the_post_thumbnail( 'thumbnail' ); ?>
 									</a>
 									<?php endif; ?>
 								<div class="blog-content <?php if ( !has_post_thumbnail() ) : echo " no_image"; endif; ?>">

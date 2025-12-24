@@ -213,11 +213,8 @@ jQuery(document).ready(
             var column_max_height1 = Math.max.apply(Math, column_height_array1);
 
             jQuery(changeclass).css('min-height', column_max_height1 + 'px');
-            
-
+            jQuery(changeclass).css('display', 'block');
         }
-
-
 
         // Maintaine equal height of all that posts which do not have image as equal to standard one that has image in full-screen slider.
         matchHeight('.full-blog .slick-slide .item .caption', '.full-blog .slick-slide .item');
@@ -307,15 +304,16 @@ jQuery(document).ready(
 
             if (targetclass2.length > 0) {
                 if (isElementInViewport(targetclass2)) {
+
                     const scrollPosition2 = window.scrollY;
-                    jQuery(".banner-author-info ").css({ "transform": 'scale(' + (1 - (scrollPosition2 * 0.0007)) + ',' + (1 - (scrollPosition2 * 0.0007)) + ') translateY(' + -scrollPosition2 * 0.5 + 'px)  ' });
+                    jQuery(".banner-author-info ").css({ "transform": 'scale(' + (1 - (scrollPosition2 * 0.0009)) + ',' + (1 - (scrollPosition2 * 0.0009)) + ') translateY(-35%)' });
 
                 }
             }
             if (targetclass3.length > 0) {
                 if (isElementInViewport(targetclass3)) {
                     const scrollPosition3 = window.scrollY;
-                    jQuery(".custom-header").css({ "transform": 'scale(' + (1 + (scrollPosition3 * 0.0004)) + ',' + (1 + (scrollPosition3 * 0.0004)) + ')' });
+                    jQuery(".custom-header").css({ "transform": 'scale(' + (1 + (scrollPosition3 * 0.0009)) + ',' + (1 + (scrollPosition3 * 0.0009)) + ')' });
 
                 }
             }
@@ -331,15 +329,28 @@ jQuery(document).ready(
         // End 
         // change color
 
-        // Animaton on scroll init
+        // show fade animation upon scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible'); // Optional
+                }
+            });
+        }, {
+            threshold: 0.05
+        });
 
-        AOS.init({
-            offset: 100,
-            duration: 700,
-            easing: 'ease-in',
-            mirror: true
-        }
-        );
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+        document.querySelectorAll('.fade-left').forEach(el => {
+            observer.observe(el);
+        });
 
         // hover on insta-video-hover
         jQuery('.insta-video-hover').hover(function toggleControls() {
@@ -373,6 +384,7 @@ jQuery(document).ready(
 
             });
         });
+        jQuery('ul.sub-menu a').removeClass('nav-link');
 
     }
 );
@@ -424,6 +436,8 @@ var findInsiders = function (elem) {
         }
     });
 
+
+
 };
 
 function openNav() {
@@ -436,6 +450,3 @@ function closeNav() {
     jQuery(".sidepanel-button-1").focus();
 }
 
-// end
-
-jQuery('ul.sub-menu a').removeClass('nav-link');

@@ -48,7 +48,7 @@
 	$wp_customize->add_setting(
 		'context_blog_background_color_opacity_site_title',
 		array(
-			'default'           => '0.1',
+			'default'           => '0',
 			'sanitize_callback' => 'context_blog_sanitize_float',
 		)
 	);

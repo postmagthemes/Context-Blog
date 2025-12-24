@@ -78,10 +78,10 @@
 					if ( get_theme_mod( 'context_blog_footer_second_list_post', 1 ) == 1 ) :
 						
 								$section_number = 22;
-								$show_category  = get_theme_mod( 'context_blog_second_footer_post_' . __( 'category', 'context-blog' ), 0 );
-								$show_meta      = get_theme_mod( 'context_blog_second_footer_post_' . __( 'meta', 'context-blog' ), 1 );
-								$show_date      = get_theme_mod( 'context_blog_second_footer_post_' . __( 'date', 'context-blog' ), 0 );
-								$show_comment   = get_theme_mod( 'context_blog_second_footer_post_' . __( 'comment', 'context-blog' ), 1 );
+								$show_category  = get_theme_mod( 'context_blog_footer_news2_' . __( 'category', 'context-blog' ), 0 );
+								$show_meta      = get_theme_mod( 'context_blog_footer_news2' . __( 'meta', 'context-blog' ), 1 );
+								$show_date      = get_theme_mod( 'context_blog_footer_news2_' . __( 'date', 'context-blog' ), 0 );
+								$show_comment   = get_theme_mod( 'context_blog_footer_news2_' . __( 'comment', 'context-blog' ), 1 );
 								$show_excerpt   = 0;
 								$show_readmore  = 0;
 								$show_modal     = 0;
@@ -124,7 +124,12 @@
 							<div class="copyright-content text-center">
 								<p><i class="fa fa-copyright"></i>
 									<?php esc_html_e( 'Proudly powered by WordPress', 'context-blog' ); ?>
-									
+									<span class="sep"> | </span>
+									<?php esc_html_e( 'postmagthemes.com', 'context-blog' ); ?>
+									<span class="sep"> | </span>
+									<?php esc_html_e( 'Theme Details', 'context-blog' ); ?>
+									<span class="sep"> | </span>
+									<a class="text-decoration-underline" href="https://www.postmagthemes.com/downloads/context-blog-free-wordpress-theme/" target="_blank"><?php esc_html_e( 'Context Blog','context-blog')?></a>
 								<p>
 							</div>
 					</div>
@@ -133,7 +138,7 @@
 		</div>
 	</footer>
 	 <!-- Modal -->
-	 <div class="modal fade" id="modalPostConetentPopup" tabindex="-1" role="dialog" aria-labelledby="modalPostConetentPopupTitle" aria-hidden="true">
+	 <div class="modal fade" id="modalPostConetentPopup" tabindex="-1" role="dialog" aria-labelledby="modalPostConetentPopupTitle" aria-hidden="true" data-lenis-prevent>
 	  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
 		<div class="modal-content">
 		  <div class="modal-header">

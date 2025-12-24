@@ -24,20 +24,31 @@
 <?php wp_body_open(); ?>
 
 <div class="site"  >
-	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'context-blog' ); ?></a>
+	
+	<?php if (is_home() || is_front_page()) : ?>
+		<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'context-blog' ); ?></a>
+	<?php else : ?>
+		<a class="skip-link screen-reader-text" href="#expandable"><?php esc_html_e( 'Skip to content', 'context-blog' ); ?></a>
+	<?php endif; ?>
 
 	<header id="masthead" class="header 
 	<?php
 	if ( get_option( 'show_on_front' ) == 'page' and is_front_page() ) :
 		echo 'its-static-page';
-elseif ( ! ( is_front_page() || is_home() ) ) :
-	echo 'its-detail-page';
-else :
-	echo 'its-blog-page';
-endif;
-?>
-">
-		<div class="top-header" >
+	elseif ( ! ( is_front_page() || is_home() ) ) :
+		echo 'its-detail-page';
+	else :
+		echo 'its-blog-page';
+	endif;
+	?>
+	">
+		<div class="top-header <?php if(
+			get_theme_mod( 'context_blog_top_header_ads_enable',0 ) == 0 && 
+			get_theme_mod( 'context_blog_logo_location_top', 1 ) == 0 &&
+			get_theme_mod( 'context_blog_topsite_title_location', 0 ) == 0 &&
+			get_theme_mod( 'context_blog_header_social_enable', 1 ) == 0 &&
+			get_theme_mod( 'context_blog_sidepanel_enable', 1 ) == 0 && ( is_home() or is_front_page() )
+		): echo 'd-none'; endif; ?>" >
 			<div class="container">
 				<?php
 				if ( get_theme_mod( 'context_blog_top_header_ads_enable' ) ) :

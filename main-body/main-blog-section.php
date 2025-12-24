@@ -4,7 +4,7 @@ function context_blog_home_main_blog_enable() {
 	 global $context_blog_count_mainblog;
 	$count_for_desgin2 = '';
 	?>
-<section class="main-blog" data-aos="fade-up" data-aos-mirror="false">
+<section class="main-blog fade-up">
 	<div class="container">
 		<div class="home-section main-blog-holder list-page">
 			

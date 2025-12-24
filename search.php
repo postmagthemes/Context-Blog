@@ -20,7 +20,7 @@ get_header();
 					$context_blog_section_number = 24;
 					$context_blog_category       = 0;
 					$context_blog_meta           = 1;
-					$context_blog_date           = 0;
+					$context_blog_date           = 1;
 					$context_blog_comment        = 1;
 					$context_blog_excerpt        = 0;
 					$context_blog_readmore       = 0;

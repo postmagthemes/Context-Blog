@@ -21,7 +21,6 @@ function context_blog_body_classes( $classes ) {
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-sidebar';
 	}
-
 	return $classes;
 }
 add_filter( 'body_class', 'context_blog_body_classes' );
@@ -219,16 +218,6 @@ function context_blog_video_controls( $settings ) {
 	return $settings;
 }
 add_filter( 'header_video_settings', 'context_blog_video_controls' );
-
-function context_blog_editor_styles() {
-	$classic_editor_styles = array(
-		'/assets/css/editor-style.css',
-	);
-
-	add_editor_style( $classic_editor_styles );
-}
-
-add_action( 'init', 'context_blog_editor_styles' );
 
 /**
  * Here we are displaying the header video in all pages:

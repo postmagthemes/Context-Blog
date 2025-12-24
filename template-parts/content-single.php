@@ -18,7 +18,14 @@
 		$context_blog_meta    = get_theme_mod( 'context_blog_singlepage_' . __( 'meta', 'context-blog' ), 1 );
 		$context_blog_date    = get_theme_mod( 'context_blog_singlepage_' . __( 'date', 'context-blog' ), 1 );
 		$context_blog_comment = get_theme_mod( 'context_blog_singlepage_' . __( 'comment', 'context-blog' ), 1 );
-
+		?>
+		<div class="category-tag">
+			<?php
+			esc_html_e( 'In', 'context-blog' );
+			the_category();
+			?>
+		</div>
+		<?php
 		context_blog_content_core_meta( $context_blog_meta, $context_blog_date, $context_blog_comment );
 		?>
 		<div class = 'content'> 
@@ -58,6 +65,11 @@
 		);
 		?>
 	<?php endif; ?>
+	<div class="category-tag d-block mt-2 mb-2">
+		<?php
+		the_tags( '<ul class="m-auto"><li>', '</li><li>', '</li></ul>' );
+		?>
+	</div>
 	<div class="comments-form"> 
 		<?php
 		// If comments are open or we have at least one comment, load up the comment template.

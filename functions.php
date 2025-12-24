@@ -26,7 +26,7 @@ function context_blog_setup() {
 	* If you're building a theme based on context-blog, use a find and replace
 	* to change 'context-blog' to the name of your theme in all the template files.
 	*/
-	load_theme_textdomain( 'context-blog' );
+	// Note: load_theme_textdomain moved to init hook to comply with WordPress 6.7.0+ requirements
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -53,6 +53,7 @@ function context_blog_setup() {
 	add_image_size( 'context-blog-main-blog-1-1200X630', 1200, 630, array( 'center', 'top' ) );
 	add_image_size( 'context-blog-main-blog-2-538X382', 538, 382, array( 'center', 'top' ) );
 	add_image_size( 'context-blog-aboutme-350X350', 350, 350, array( 'center', 'top' ) );
+	add_image_size( 'context-blog-center-image-785X485', 785, 485, array( 'center', 'top' ) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
@@ -117,10 +118,27 @@ function context_blog_setup() {
 	add_theme_support( 'wp-block-styles' );
 	add_theme_support( 'responsive-embeds' );
 
+	$classic_editor_styles = array(
+		'/assets/css/editor-style.css',
+	);
+
+	add_editor_style( $classic_editor_styles );
+
+
 }
 add_action( 'after_setup_theme', 'context_blog_setup' );
 
-
+/**
+ * Load theme textdomain for translations.
+ * 
+ * This function loads the theme textdomain at the init hook to comply with
+ * WordPress 6.7.0+ requirements that translations should be loaded at init
+ * action or later.
+ */
+function context_blog_load_textdomain() {
+	load_theme_textdomain( 'context-blog', get_template_directory() . '/languages' );
+}
+add_action( 'init', 'context_blog_load_textdomain' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -180,6 +198,19 @@ add_action( 'widgets_init', 'context_blog_widgets_init' );
 /**
  * Enqueue scripts and styles.
  */
+
+function context_blog_scripts_mostimp() {
+	wp_enqueue_style( 'context-blog-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), null );
+}
+add_action( 'wp_enqueue_scripts', 'context_blog_scripts_mostimp', 1002 );
+
+function context_blog_scripts_inline() {
+	wp_register_style( 'context-blog-customizer-styles', false );
+	wp_enqueue_style( 'context-blog-customizer-styles' );
+	wp_add_inline_style( 'context-blog-customizer-styles', context_blog_color_font_css() );
+}
+add_action( 'wp_enqueue_scripts', 'context_blog_scripts_inline', 1001 );
+
 function context_blog_scripts() {
 	wp_enqueue_style( 'context-blog-google-fonts', 'https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto&display=swap', array(), null );
 
@@ -194,8 +225,6 @@ function context_blog_scripts() {
 	wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick.css', array(), '1.9.0' );
 
 	wp_enqueue_style( 'slic-theme', get_template_directory_uri() . '/assets/css/slick-theme.css', array(), null );
-
-	wp_enqueue_style( 'Aos', get_template_directory_uri() . '/assets/css/aos.css', array(), null );
 
 	wp_enqueue_style( 'context-blog-style', get_stylesheet_uri(), array(), null );
 
@@ -213,8 +242,6 @@ function context_blog_scripts() {
 
 	wp_enqueue_script( 'jquery-scrollUp', get_template_directory_uri() . '/assets/js/jquery.scrollUp.js', array( 'jquery' ), '2.4.1', true );
 
-	wp_enqueue_script( 'jquery-aos', get_template_directory_uri() . '/assets/js/aos.js', array( 'jquery' ), '1.0.0', true );
-
 	$blogpost_design = array(
 		'context_blog_main_blog_design_value' => get_theme_mod( 'context_blog_main_blog_design', 2 ),
 	);
@@ -230,22 +257,20 @@ function context_blog_scripts() {
 
 	wp_enqueue_script( 'context-blog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-	wp_register_style( 'context-blog-customizer-styles', false );
-
-	wp_enqueue_style( 'context-blog-customizer-styles' );
-
-	wp_add_inline_style( 'context-blog-customizer-styles', context_blog_color_font_css() );
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	wp_enqueue_style( 'context-blog-responsive', get_template_directory_uri() . '/assets/css/responsive.css', array(), null );
 
 	if ( is_singular() || is_archive() || is_search() ) {
 		wp_enqueue_script( 'context-blog-singular', get_template_directory_uri() . '/assets/js/singular.js', array( 'jquery' ), '1.0.0', true );
 	}
+
+	// Register the Lenis script
+	wp_enqueue_script( 'lenis', get_template_directory_uri() . '/assets/js/lenis.js', array( 'jquery' ), '1.1.3', true );
 }
-add_action( 'wp_enqueue_scripts', 'context_blog_scripts', 10000 );
+add_action( 'wp_enqueue_scripts', 'context_blog_scripts', 1000 );
+
+
 
 function context_blog_editorscripts() {
 
@@ -272,24 +297,31 @@ add_action( 'enqueue_block_assets', 'context_blog_editorscripts', 10 );
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
- * Custom template tags for this theme.
+ * Load template files at init hook to prevent early translation loading.
+ * This ensures translations are loaded before template files are processed.
  */
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-require get_template_directory() . '/inc/template-functions.php';
+function context_blog_load_template_files() {
+	require get_template_directory() . '/inc/template-functions.php';
+	
+}
+add_action( 'init', 'context_blog_load_template_files' );
+
 require get_template_directory() . '/template-parts/content-core-meta.php';
 require get_template_directory() . '/template-parts/content-core.php';
+
 /**
- * Customizer additions.
+ * Load customizer files at init hook to prevent early translation loading.
+ * This ensures translations are loaded before customizer files are processed.
  */
 require get_template_directory() . '/inc/customizer.php';
 
+
 /**
-* Breadcrumbs
-*/
+ * Load breadcrumbs at init hook to prevent early translation loading.
+ */
+
 require_once get_template_directory() . '/inc/breadcrumbs.php';
 
 /**

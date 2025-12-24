@@ -11,7 +11,7 @@ jQuery(window).scroll(
             jQuery('.breadcrumb').css('padding-top', '0');
             jQuery('.breadcrumb-holder').css('transition', '.5s');
             jQuery('.breadcrumb-holder').css('padding', '10px 0');
-            jQuery('.breadcrumb-holder, article .header').css('z-index', '99999');
+            jQuery(' article .header , .breadcrumb-holder').css('z-index', '99999');
         }
         if (scroll <= 110) {
             jQuery('.bread-title').css('font-size', '36px');
@@ -19,7 +19,7 @@ jQuery(window).scroll(
             jQuery('.breadcrumb').css('padding-top', '10px');
             jQuery('.breadcrumb-holder').css('padding', '40px 0');
             jQuery('.breadcrumb-holder').css('transition', '.5s');
-            jQuery('.breadcrumb-holder, article .header').css('z-index', '-1');
+            jQuery('article .header, .breadcrumb-holder').css('z-index', '1');
 
         }
 

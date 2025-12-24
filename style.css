@@ -4,9 +4,9 @@ Theme URI: https://www.postmagthemes.com/downloads/context-blog-free-wordpress-t
 Author: postmagthemes.com
 Author URI: https://postmagthemes.com/
 Description: Context blog WordPress theme is a free, personalized, and context-oriented theme. It starts by focusing on your persona, followed by other attractions. The other six attractions show your post in a different design. Your main blog post is one of them. The convincing feature is a selection of blog posts that you can use to highlight your post in different sections. Post selection is based on different contexts, such as the number of comments, date, category. The theme is completely configurable and accessible from the customizer's preview. Additionally, the theme is fully responsive and mobile-friendly, ensuring that your content looks great on any device.  Its HTML5 structure with sections and articles ensures optimal SEO performance. In summary, the Context blog WordPress theme is a customizer based, versatile, and SEO-friendly option for bloggers looking to enhance their online presence and improve their search engine rankings. Demo is here https://contextblog.postmagthemes.com
-Version: 1.0.5
+Version: 1.3.0
 Requires at least: 4.5
-Tested up to: 6.4
+Tested up to: 6.9
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -382,7 +382,7 @@ template {
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html {
@@ -419,6 +419,36 @@ h5,
 h6 {
     clear: both;
     word-break: break-word;
+}
+
+h1,
+.h1 {
+    font-size: 32px;
+}
+
+h2,
+.h2 {
+    font-size: 24px;
+}
+
+h3,
+.h3 {
+    font-size: 19px;
+}
+
+h4,
+.h4 {
+    font-size: 16px;
+}
+
+h5,
+.h5 {
+    font-size: 14px;
+}
+
+h6,
+.h6 {
+    font-size: 13px;
 }
 
 p {
@@ -531,7 +561,6 @@ input[type="submit"] {
     border-radius: 3px;
     background: #e6e6e6;
     color: rgba(0, 0, 0, 0.8);
-    line-height: 1;
     padding: 0.6em 1em 0.4em;
 }
 
@@ -740,8 +769,9 @@ textarea {
 
 .nav-previous a,
 .nav-next a {
-  color: #000000;
+    color: #000000;
 }
+
 /* Posts and pages
 --------------------------------------------- */
 .sticky {
@@ -1115,14 +1145,115 @@ p {
     line-height: 1.8;
 }
 
+/* added since version 1.1.2 */
+/* dimenson of img of slider maintain with the design 
+    --------------------------------------------- */
 .home img,
+#main img,
 aside img,
-footer img,
 .archive img,
 .search img {
-    width: 100%;
     max-width: 100%;
 }
+
+.header .top-header .logo img {
+    width: 100%;
+}
+
+aside img,
+aside a.img-holder {
+    width: 100%;
+}
+
+/* aside fullwidth slider image dimension maintain */
+aside .full-width img {
+    min-height: 491px;
+    object-fit: cover;
+}
+
+
+.home-section.main-blog-holder aside .full-width img {
+    min-height: 491px;
+    object-fit: cover;
+}
+
+footer .img-holder img {
+    width: 100px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+
+}
+
+footer .f-logo img {
+    width: 50%;
+}
+
+footer .blog-content.yes_image {
+    padding: 0 10px;
+}
+
+/* main blog image dimension maintain */
+
+.home-section .single-blog .main-blog-snippet img,
+.archive .single-blog .main-blog-snippet img,
+.search .single-blog .main-blog-snippet img {
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+}
+
+.home-section .col-lg-8.main-blog-body a.img-holder,
+.archive .col-lg-8.main-blog-body a.img-holder,
+.search .col-lg-8.main-blog-body a.img-holder {
+    width: 100%;
+}
+
+.masionary-view {
+    column-count: 2;
+    grid-gap: 30px;
+
+}
+
+.home-section .single-blog .masionary-view .main-blog-snippet img,
+.archive .single-blog .masionary-view .main-blog-snippet img,
+.search .single-blog .masionary-view .main-blog-snippet img,
+.masionary-view .main-blog-snippet img {
+    aspect-ratio: 538 / 382;
+    object-fit: cover;
+    width: 100%;
+}
+
+.masionary-view>.blog-snippet {
+    vertical-align: top;
+    break-inside: avoid;
+    margin: 0 0 30px;
+}
+
+/* card slider */
+.home-section.thumb-blog img {
+    height: 245px;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 382/271;
+}
+
+/* gallery slider */
+.home-section.inline-blog .col-lg-4 img {
+    object-fit: contain;
+    height: 100%;
+}
+
+.home-section.inline-blog .col-lg-8 img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.home-section.inline-blog .col-lg-8 a.img-holder {
+    height: 100%;
+}
+
+
+/* end */
 
 input,
 textarea,
@@ -1447,12 +1578,16 @@ p.site-title a {
     color: #fff;
 }
 
+#main-menu>li>a.nav-link {
+    padding-left: 15px;
+}
+
 #main-menu li a.nav-link.has-submenu,
 #side-menu li a.nav-link.has-submenu {
     padding-right: 30px;
 }
 
-#main-menu li a.nav-link:after,
+#main-menu li a.nav-links:after,
 #side-menu li a.nav-link:after {
     content: "";
     position: absolute;
@@ -2200,10 +2335,14 @@ article .header,
 .category-tag li a {
     margin: 0 5px 0 0;
     display: inline-block;
-    vertical-align: top;
+    vertical-align: baseline;
     text-decoration: underline;
     font-size: 14px;
     line-height: 1.5;
+}
+
+.category-tag {
+    font-size: 14px;
 }
 
 .category-tag ul {
@@ -2231,23 +2370,35 @@ article .header,
 /*end thumb holder*/
 
 /*extra-info*/
-.extra-info {
+ul.extra-info {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     margin: 0 0 10px;
-    padding: 0;
     font-size: 14px;
+    padding: 5px 0 5px 0;
+}
+
+.thumb-blog .extra-info li,
+.main-blog-snippet .extra-info li {
+    margin: 5px 10px 5px 10px;
+
+}
+
+.extra-info li,
+.masionary-view .main-blog-snippet .extra-info li {
+    margin: 5px 10px 5px 0px;
+
+}
+
+.btn-text {
+    padding-right: 0px;
 }
 
 .extra-info,
 .extra-info span,
 .extra-info span a {
     color: #aaa;
-}
-
-.extra-info li {
-    margin: 0 20px 5px 0;
 }
 
 .detail-holder .extra-info li span {
@@ -2259,12 +2410,7 @@ article .header,
 }
 
 .sidebar .extra-info li {
-    margin: 0 20px 5px 0;
-
-}
-
-.sidebar .extra-info li:last-child {
-    margin: 0;
+    margin: 5px 10px 5px 0px;
 }
 
 /* Make backgorund color black for those post which do not have image */
@@ -2284,7 +2430,8 @@ article .header,
     margin: 0 0 15px;
 }
 
-.thumb-blog .extra-info {
+.thumb-blog .extra-info,
+.thumb-blog .category-tag {
     justify-content: center;
 }
 
@@ -2298,7 +2445,7 @@ article .header,
 
 .thumb-blog .slick-arrow {
     top: auto;
-    bottom: -100px;
+    bottom: -60px;
 }
 
 .thumb-blog .slick-prev {
@@ -2348,7 +2495,8 @@ article .header,
 
 .full-blog .slick-arrow {
     top: auto;
-    bottom: 0;
+    bottom: 20px;
+
 }
 
 .full-blog .slick-prev {
@@ -2391,7 +2539,7 @@ article .header,
 }
 
 .blog-snippet .title {
-    margin: 0 0 15px;
+    margin: 0 0 5px;
 }
 
 .bordered .blog-snippet .blog-content {
@@ -2401,9 +2549,11 @@ article .header,
 .blog-snippet .img-holder {
     margin: 2px 2px 20px;
 }
+
 .blog-content.no_image {
-    padding: 20px 20px 20px 20px ;
+    padding: 20px 20px 20px 20px;
 }
+
 .blog-content.yes_image {
     padding: 10px 20px;
 }
@@ -2496,6 +2646,7 @@ article .header,
     width: 100%;
     padding: 150px 25px 25px;
 }
+
 .image-inner-content .blog-snippet .blog-content.yes_image {
     background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
     background: -o-linear-gradient(bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 75%);
@@ -2546,7 +2697,10 @@ article .header,
 
 .main-blog-holder .single-blog>.blog-snippet>.blog-content>.extra-info,
 .archive .single-blog>.blog-snippet>.blog-content>.extra-info,
-.search .single-blog>.blog-snippet>.blog-content>.extra-info {
+.search .single-blog>.blog-snippet>.blog-content>.extra-info,
+.main-blog-holder .single-blog>.blog-snippet>.blog-content>.category-tag,
+.archive .single-blog>.blog-snippet>.blog-content>.category-tag,
+.search .single-blog>.blog-snippet>.blog-content>.category-tag {
     justify-content: center;
 }
 
@@ -2563,18 +2717,6 @@ article .header,
 
 .grid-view.bordered {
     grid-gap: 30px;
-}
-
-.masionary-view {
-    column-count: 2;
-    grid-gap: 30px;
-
-}
-
-.masionary-view>.blog-snippet {
-    vertical-align: top;
-    break-inside: avoid;
-    margin: 0 0 30px;
 }
 
 /*end grid view*/
@@ -2600,12 +2742,7 @@ article .header,
 }
 
 .inline-blog .blog-slider-thmb .img-holder {
-  margin: 3.3px !important;
-}
-
-.inline-blog .blog-slider-thmb > div {
-  height: 325px !important;
-  overflow: hidden;
+    margin: 3.3px !important;
 }
 
 /*end inline blog*/
@@ -2631,7 +2768,8 @@ aside {
 
 .home-section h3.title,
 .archive h3.title,
-.search h3.title {
+.search h3.title,
+.sidebar h3.title {
     font-size: 24px;
 }
 
@@ -2779,7 +2917,8 @@ aside {
     padding: 0;
 }
 
-.sidebar-block .wp-block-categories li {
+.sidebar-block .wp-block-categories li,
+.sidebar-block .wp-block-group li {
     display: flex;
     justify-content: space-between;
     color: #999;
@@ -2796,7 +2935,8 @@ aside {
     padding: 0;
 }
 
-.sidebar-block .wp-block-categories li a {
+.sidebar-block .wp-block-categories li,
+.sidebar-block .wp-block-group li {
     padding: 0 0 15px;
 }
 
@@ -2845,9 +2985,20 @@ aside {
     margin: 0 10px 0 0;
 }
 
+.detail-page .detail-holder .category-tag {
+    display: flex;
+    justify-content: center;
+}
 
 .detail-author-block h2 {
     font-size: 1.75rem;
+}
+
+.detail-page .detail-holder .extra-info,
+.detail-page .social-share {
+    border: 1px solid #efefef;
+    border-style: solid none;
+    padding: 10px 0;
 }
 
 .detail-author-block {
@@ -3020,7 +3171,7 @@ h3.comment-reply-title {
     background-color: #000;
 }
 
-.footer h3 {
+.footer h3.title {
     font-size: 20px;
 }
 
@@ -3035,10 +3186,6 @@ footer .comment-metadata {
 
 .footer .f-logo {
     margin: 0 0 40px;
-}
-
-.footer .f-logo img {
-    max-height: 80px;
 }
 
 .footer .social-links {
@@ -3096,6 +3243,7 @@ footer .comment-metadata {
 footer .footer-news h2.f-title {
     font-size: 24px;
 }
+
 .copyright {
     padding: 10px 0;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -3172,6 +3320,8 @@ body {
     /*  this setting is the width of alignwide */
 }
 
+/* .detail-page .category-tag:not(.alignleft, .alignright, .alignfull, .alignwide), */
+/* this is for single page category and tag which later not used */
 .detail-page .detail-holder .extra-info:not(.alignleft, .alignright, .alignfull, .alignwide),
 
 .detail-page .detail-holder .content> :not(.alignleft, .alignright, .alignfull, .alignwide),
@@ -3425,9 +3575,100 @@ html {
 /* End of Media css */
 
 
-.home-section .about-author-title,
-.home-section .main-title {
+.home-section h2.about-author-title,
+.home-section h2.main-title {
     font-size: 32px;
     line-height: 1.4;
     letter-spacing: 1px;
+}
+
+/* CSS added by Lenis smooth scrlling */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+    pointer-events: none;
+}
+
+/* end */
+
+/* added later */
+.site-navigation .container {
+    padding: 0;
+}
+
+.single-post .detail-holder .content h2,
+.single-post .detail-holder .content h3,
+.single-post .detail-holder .content h4,
+.single-post .detail-holder .content h5,
+.single-post .detail-holder .content h6 {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* animation fade made with js */
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.2s ease-in;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+.fade-up {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50px, 0);
+    transform: translate3d(0, 50px, 0);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.fade-in-delay-1 {
+    transition-delay: 0.2s;
+}
+
+.fade-in-delay-2 {
+    transition-delay: 0.4s;
+}
+
+.fade-in-delay-3 {
+    transition-delay: 0.6s;
+}
+
+.fade-in-delay-4 {
+    transition-delay: 0.8s;
+}
+
+.fade-left {
+    opacity: 0;
+    -webkit-transform: translate3d(300px, 0, 0);
+    transform: translate3d(300px, 0, 0);
+    transition: opacity 1s ease-in, transform 1s ease-in;
+}
+
+.fade-left.visible {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }

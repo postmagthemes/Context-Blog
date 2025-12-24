@@ -12,12 +12,11 @@ function context_blog_home_card_slider_enable() {   ?>
 
 		$args['posts_per_page']      = absint( get_theme_mod( 'context_blog_card_slider_number_of_display', '4' ) );
 		$args['ignore_sticky_posts'] = 1;
-		$args['cat']       = esc_attr( get_theme_mod( 'context_blog_card_slider_category_name',0 ) ) ;
+		$args['cat'] = esc_attr( get_theme_mod( 'context_blog_card_slider_category_name',0 ) ) ;		
 		$args['orderby']   = array(
 			esc_attr( get_theme_mod( 'context_blog_card_slider_order', 'date' ) ) => 'DSC',
 			'date' => 'DSC',
 		);
-
 		$blogsloop = new WP_Query( $args );
 		if ( $blogsloop->have_posts() ) :
 			?> <section class="home-section thumb-blog slide-excerpt">
@@ -25,7 +24,7 @@ function context_blog_home_card_slider_enable() {   ?>
 					<?php if ( get_theme_mod( 'context_blog_home_card_slider_title' ) ) :
 						?> <h2 class="main-title text-center" ><?php echo esc_html( get_theme_mod( 'context_blog_home_card_slider_title' ) ); ?></h2> <?php
 					endif; ?>
-					<div class="thumb-block" data-aos="fade-left" >
+					<div class="thumb-block fade-left">
 						<?php
 						while ( $blogsloop->have_posts() ) :
 							$blogsloop->the_post();

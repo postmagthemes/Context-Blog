@@ -6,7 +6,7 @@ function context_blog_color_font_css() {
 	$show_on_front                        = get_option( 'show_on_front' );
 	$introduction_enable_blogpage         = get_theme_mod( 'context_blog_introduction_enable_blogpage', 1 );
 	$background_color_site_title_homepage = get_theme_mod( 'context_blog_background_color_site_title_homepage', '#000' );
-	$background_color_opacity_site_title  = get_theme_mod( 'context_blog_background_color_opacity_site_title', 0.1 );
+	$background_color_opacity_site_title  = get_theme_mod( 'context_blog_background_color_opacity_site_title', 0 );
 	$header_image_enable_homepage         = get_theme_mod( 'context_blog_header_image_enable_homepage', 1 );
 	$color_opacity_header_text_color      = get_theme_mod( 'context_blog_color_opacity_header_text_color', 1 );
 	$header_image_enable_blogpage         = get_theme_mod( 'context_blog_header_image_enable_blogpage', 1 );
@@ -20,12 +20,12 @@ function context_blog_color_font_css() {
 	$context_blog_paragraph_font_family   = 'Roboto';
 
 	if ( $header_image_enable_homepage == 0 and $show_on_front == 'page' ) :
-		$introduction_margin_homepage = '0px auto 0px auto';
+		$introduction_margin_homepage = '-50px auto 0px auto';
 	elseif ( $header_image_enable_homepage == 0 and $show_on_front == 'posts' ) :
-		$introduction_margin_blog = '0px auto 0px auto';
+		$introduction_margin_blog = '-50px auto 0px auto';
 	endif;
 	if ( $header_image_enable_blogpage == 0 and $show_on_front == 'page' ) :
-		$introduction_margin_blog = '0px auto 0px auto';
+		$introduction_margin_blog = '-50px auto 0px auto';
 	endif;
 
 	if ( has_header_image() ) :
@@ -44,8 +44,11 @@ function context_blog_color_font_css() {
 			} 
 		endif;
 		
-	else :
-		$header_image_height = '48.6vw';
+	elseif (get_theme_mod('context_blog_logo_location_onHeaderImage',0) == 1) :
+		$header_image_height = '35vw';
+
+	else:
+		$header_image_height = '28vw';
 
 	endif;
 
@@ -108,8 +111,11 @@ function context_blog_color_font_css() {
 			.pagination li:hover a,
 			.pagination .page-numbers.current,
 			.pagination .page-numbers:hover,
-			.messenger-container .btn  {
-				background: ' . esc_attr( $primary_theme_color ) . ' !important ;
+			.messenger-container .btn,
+			.left-news-slider-block .count-news, 
+			.right-news-slider-block .count-news
+			{
+				background-color: ' . esc_attr( $primary_theme_color ) . ' !important ;
 			}
 			.btn-outline-primary:hover,
 			.social-links.bordered li a:hover,
@@ -139,7 +145,13 @@ function context_blog_color_font_css() {
 			.inside-page.search .main-blog-body .blog-snippet .blog-content,
 			.inside-page.search aside > div,
 			.pagination .page-numbers,
-			#masthead
+			.left-float-post,
+			.right-float-post,
+			#masthead,
+			#main-news .container,
+			.left-news-slider-blog,
+			.right-news-slider-blog,
+			.center-news-slider-blog
 			{
 				background-color:' . esc_attr( $main_background_color ) . ';
 			}
@@ -170,6 +182,7 @@ function context_blog_color_font_css() {
 				min-height: ' . esc_attr( $header_image_height ) . ';
 				
 			}
+
 			.editor-styles-wrapper h1 {
 				font-family : ' . esc_attr( $context_blog_posttitle_font_family ) . '; 
 			}
@@ -197,8 +210,6 @@ function context_blog_color_font_css() {
 				}
 
 			}
-
-
 
 		';
 				// Site-title Text Color for top header

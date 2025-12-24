@@ -25,7 +25,7 @@ function context_blog_home_full_screen_slider_enable() {
 				<h2 class="main-title text-left"><?php echo esc_html( get_theme_mod( 'context_blog_home_full_screen_slider_title' ) ); ?></h2>
 			</div>
 		<?php endif; ?>
-			<div class="full-blog-holder"  data-aos="fade-in">
+			<div class="full-blog-holder fade-in">
 			<?php
 			while ( $blogsloop->have_posts() ) :
 				$blogsloop->the_post();

@@ -127,6 +127,24 @@ $wp_customize->add_section(
 	)
 );
 $wp_customize->add_setting(
+	'context_blog_image_header_adv',
+	array(
+		'default'           => '',
+		'sanitize_callback' => 'esc_url',
+	)
+);
+
+$wp_customize->add_control(
+	'context_blog_image_header_adv',
+	array(
+		'type'        => 'Image',
+		'section'     => 'context_blog_advertise_section',
+		'input_attrs' => array(
+			'src' => esc_url( get_template_directory_uri() . '/images/header_adver.jpg' ),
+		),
+	)
+);
+$wp_customize->add_setting(
 	'context_blog_top_header_ads_enable',
 	array(
 		'default'           => 0,
