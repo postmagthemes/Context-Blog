@@ -2,7 +2,7 @@
 
 ⭐ **Context Blog** is a free WordPress theme designed for bloggers, online magazines, and content-rich websites. It provides a clean, fast, and SEO-friendly layout with flexible sections for posts, categories, and featured content.
 
-![Theme Preview](assets/screenshot.png)
+![Theme Preview](/screenshot.png)
 
 ## 🌐 Live Demo
 [https://contextblog.postmagthemes.com](https://contextblog.postmagthemes.com)
