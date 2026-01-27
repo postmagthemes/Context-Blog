@@ -30,6 +30,11 @@ Description: Context blog WordPress theme is a free, personalized, and context-o
 context-blog includes support for WooCommerce.
 
 == Changelog ==
+
+= 1.3.1  jan 19 2026
+* live preview in iphone is not showing of wordpress.org thus add line 21 in script.js, animated giff added.
+ logo at header streach problem in iphone solved
+
 = 1.3.0  dec 23 2025
 * box-size made with initial to solve box issue in edit mode, unnessary init removed for loading text domain.
 

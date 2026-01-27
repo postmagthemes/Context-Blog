@@ -18,8 +18,9 @@ jQuery(document).ready(
 
         function setupResponsiveMenu(e) {
             if (window.innerWidth < 992) {
-                document.querySelector("#main-menu > li:last-of-type").addEventListener("keydown", handleTabPress);
-
+                if (document.querySelector("#main-menu > li:last-of-type") != null) {
+                    document.querySelector("#main-menu > li:last-of-type").addEventListener("keydown", handleTabPress);
+                }
             } else {
                 if (document.querySelector("#main-menu > li:last-of-type") != null) {
                     document.querySelector("#main-menu > li:last-of-type").removeEventListener("keydown", handleTabPress);
