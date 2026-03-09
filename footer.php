@@ -48,6 +48,7 @@
 						$show_meta      = get_theme_mod( 'context_blog_footer_news1_' . __( 'meta', 'context-blog' ), 1 );
 						$show_date      = get_theme_mod( 'context_blog_footer_news1_' . __( 'date', 'context-blog' ), 1 );
 						$show_comment   = get_theme_mod( 'context_blog_footer_news1_' . __( 'comment', 'context-blog' ), 0 );
+						$show_wordcount = get_theme_mod( 'context_blog_footer_news1_' . __( 'word', 'context-blog' ), 1 );
 						$show_excerpt   = 0;
 						$show_readmore  = 0;
 						$show_modal     = 0;
@@ -67,7 +68,7 @@
 									endif;
 									while ( $blogsloop->have_posts() ) :
 										$blogsloop->the_post();
-										context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal );
+										context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal,$show_wordcount );
 									endwhile;
 									wp_reset_postdata();
 								?></div>
@@ -82,6 +83,7 @@
 								$show_meta      = get_theme_mod( 'context_blog_footer_news2' . __( 'meta', 'context-blog' ), 1 );
 								$show_date      = get_theme_mod( 'context_blog_footer_news2_' . __( 'date', 'context-blog' ), 0 );
 								$show_comment   = get_theme_mod( 'context_blog_footer_news2_' . __( 'comment', 'context-blog' ), 1 );
+								$show_wordcount = get_theme_mod( 'context_blog_footer_news2_' . __( 'word', 'context-blog' ), 1 );
 								$show_excerpt   = 0;
 								$show_readmore  = 0;
 								$show_modal     = 0;
@@ -104,7 +106,7 @@
 											<?php endif;
 											while ( $blogsloop->have_posts() ) :
 												$blogsloop->the_post();
-												context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal );
+												context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal,$show_wordcount );
 											endwhile;
 											wp_reset_postdata();
 											?>

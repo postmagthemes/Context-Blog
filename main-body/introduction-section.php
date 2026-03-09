@@ -28,7 +28,7 @@ function context_blog_home_introduction_enable() {
 				<div class="info-holder">
 					<h2 class="about-author-title"> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h2>
 						  <?php
-							context_blog_content_core_meta( 1, 1, 0 );
+							context_blog_content_core_meta( 1, 1, 0, 0 );
 							context_blog_word_limit( $context_blog_word_limit );
 							?>
 					

@@ -18,13 +18,14 @@ get_header();
 				<div class="row">
 					<?php
 					$context_blog_section_number = 23;
-					$context_blog_category       = 1;
-					$context_blog_meta           = 1;
-					$context_blog_date           = 1;
-					$context_blog_comment        = 1;
-					$context_blog_excerpt        = 0;
-					$context_blog_readmore       = 0;
-					$context_blog_modal          = 0;
+					$context_blog_category       = get_theme_mod( 'context_blog_main_blog_' . __( 'category', 'context-blog' ), 1 );
+					$context_blog_meta           = get_theme_mod( 'context_blog_main_blog_' . __( 'meta', 'context-blog' ), 1 );
+					$context_blog_date           = get_theme_mod( 'context_blog_main_blog_' . __( 'date', 'context-blog' ), 1 );
+					$context_blog_comment        = get_theme_mod( 'context_blog_main_blog_' . __( 'comment', 'context-blog' ), 1 );
+					$context_blog_wordcount	  = get_theme_mod( 'context_blog_main_blog_' . __( 'word', 'context-blog' ), 1 );
+					$context_blog_excerpt        = get_theme_mod( 'context_blog_main_blog_' . __( 'excerpt', 'context-blog' ), 1 );
+					$context_blog_readmore       =  get_theme_mod( 'context_blog_main_blog_readmore', 1 );
+					$context_blog_modal          = get_theme_mod( 'context_blog_modal_popup_enable', 1 );
 					if ( ( get_theme_mod( 'context_blog_sidebar_enable_homepage', '1' ) == 1 and get_option( 'show_on_front' ) == 'posts' )
 						|| ( get_theme_mod( 'context_blog_sidebar_enable_blogpage', '1' ) == 1 and get_option( 'show_on_front' ) == 'page' )
 					) :
@@ -78,7 +79,7 @@ get_header();
 
 							endif;
 
-							context_blog_content_core( $context_blog_section_number, $context_blog_category, $context_blog_meta, $context_blog_date, $context_blog_comment, $context_blog_excerpt, $context_blog_readmore, $context_blog_modal );
+							context_blog_content_core( $context_blog_section_number, $context_blog_category, $context_blog_meta, $context_blog_date, $context_blog_comment, $context_blog_excerpt, $context_blog_readmore, $context_blog_modal,$context_blog_wordcount );
 
 							$context_blog_count_mainblog++;
 

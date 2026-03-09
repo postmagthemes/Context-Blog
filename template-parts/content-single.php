@@ -18,6 +18,8 @@
 		$context_blog_meta    = get_theme_mod( 'context_blog_singlepage_' . __( 'meta', 'context-blog' ), 1 );
 		$context_blog_date    = get_theme_mod( 'context_blog_singlepage_' . __( 'date', 'context-blog' ), 1 );
 		$context_blog_comment = get_theme_mod( 'context_blog_singlepage_' . __( 'comment', 'context-blog' ), 1 );
+		$context_blog_word = get_theme_mod( 'context_blog_singlepage_' . __( 'word', 'context-blog' ), 1 );
+
 		?>
 		<div class="category-tag">
 			<?php
@@ -26,7 +28,7 @@
 			?>
 		</div>
 		<?php
-		context_blog_content_core_meta( $context_blog_meta, $context_blog_date, $context_blog_comment );
+		context_blog_content_core_meta( $context_blog_meta, $context_blog_date, $context_blog_comment, $context_blog_word );
 		?>
 		<div class = 'content'> 
 		<?php

@@ -126,9 +126,9 @@ $wp_customize->add_control(
 );
 
 
-$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ) );
+$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ),__( 'word', 'context-blog' ), );
 foreach ( $context_blog_post_taxonomy_arrays as  $context_blog_post_taxonomy ) {
-	if ( $context_blog_post_taxonomy == __( 'meta', 'context-blog' ) or $context_blog_post_taxonomy == __( 'comment', 'context-blog' ) ) :
+	if ( $context_blog_post_taxonomy == __( 'meta', 'context-blog' ) || $context_blog_post_taxonomy == __( 'comment', 'context-blog' ) || $context_blog_post_taxonomy == __('word', 'context-blog') ) :
 		$wp_customize->add_setting(
 			'context_blog_footer_news2_' . $context_blog_post_taxonomy,
 			array(

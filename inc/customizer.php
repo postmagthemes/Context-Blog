@@ -98,6 +98,7 @@ function context_blog_customize_backend_scripts() {
 		'context_blog_meta_translate'     => __( 'meta', 'context-blog' ),
 		'context_blog_date_translate'     => __( 'date', 'context-blog' ),
 		'context_blog_comment_translate'  => __( 'comment', 'context-blog' ),
+		'context_blog_word_translate'  => __( 'word', 'context-blog' ),
 		'context_blog_category_translate' => __( 'category', 'context-blog' ),
 		'context_blog_excerpt_translate'  => __( 'excerpt', 'context-blog' ),
 

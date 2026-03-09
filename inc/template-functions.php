@@ -364,3 +364,27 @@ function context_blog_the_title( $before = '', $after = '', $display = true ) {
 		return $title;
 	}
 }
+
+/* Word read count  */
+if ( ! function_exists( 'context_blog_wordcount' ) ) :
+	/**
+	 * @param $content
+	 *
+	 * @return string
+	 */
+	function context_blog_wordcount( $post_id ) {
+			$content          = apply_filters( 'the_content', get_post_field( 'post_content', $post_id ) );
+			$decode_content   = html_entity_decode( $content );
+			$filter_shortcode = do_shortcode( $decode_content );
+			$strip_tags       = wp_strip_all_tags( $filter_shortcode, true );
+			$count            = str_word_count( $strip_tags );
+			$count            = sprintf( _n( '%s word', '%s words', number_format_i18n( $count ), 'context-blog' ), number_format_i18n( $count ) );
+		if ( absint( $count ) > 0 ) {
+			if ( 'post' == get_post_type( $post_id ) || 'page' == get_post_type( $post_id ) ) :
+				echo '<li><span class="far fa-edit"></span><span> ';
+				echo esc_html( $count );
+				echo '</span></li>';
+				endif;
+		}
+	}
+endif;

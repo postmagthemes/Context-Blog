@@ -163,9 +163,9 @@ $wp_customize->add_control(
 	)
 );
 
-$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ), __( 'excerpt', 'context-blog' ) );
+$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ), __( 'word', 'context-blog' ), __( 'excerpt', 'context-blog' ) );
 foreach ( $context_blog_post_taxonomy_arrays as  $context_blog_post_taxonomy ) {
-	if ( $context_blog_post_taxonomy == __( 'category', 'context-blog' ) ) :
+	if ( $context_blog_post_taxonomy == __( 'category', 'context-blog' ) || $context_blog_post_taxonomy == __( 'word', 'context-blog' ) ) :
 		$wp_customize->add_setting(
 			'context_blog_card_slider_' . $context_blog_post_taxonomy,
 			array(

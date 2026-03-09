@@ -1,7 +1,7 @@
 <?php
 // here is the content core for all the sections including blog post
 
-function context_blog_content_core( $section, $category, $meta, $date, $comment, $excerpt, $readmore, $modal ) {
+function context_blog_content_core( $section, $category, $meta, $date, $comment, $excerpt, $readmore, $modal,$wordcount ) {
 // section 2 = card slider, 3 = full width slider , 4 = gallery slider, 5 = leaflet slider, 6 = left news, 7 = right news, 8 = center news, 9 = scroll news,
 	// 10 = grid column news 11 = more grid column, 13 = roll slide, 14 = mix grid, 20 = main blog, 21 = sidebar full width, 22 = footer news , 23 = archive , 24 = search, 25 = related post
 	global $context_blog_count_mainblog;
@@ -194,7 +194,7 @@ function context_blog_content_core( $section, $category, $meta, $date, $comment,
 			<h3 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 		<?php endif;
 		
-		context_blog_content_core_meta( $meta, $date, $comment ); 
+		context_blog_content_core_meta( $meta, $date, $comment, $wordcount ); 
 		if ( $excerpt == 1 ) :
 			context_blog_word_limit( $context_blog_word_limit );
 		endif;

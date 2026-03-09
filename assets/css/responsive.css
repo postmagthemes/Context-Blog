@@ -918,14 +918,7 @@
     }
 
     .header .t-header-holder .logo img {
-        width: auto;
-        /* override width:100% */
-        max-width: 100%;
-        /* still responsive */
-        height: auto;
-        /* keep aspect ratio */
-        display: block;
-        /* remove inline gap */
+        width: 100%;
     }
 
     .header .t-header-holder .site-title {

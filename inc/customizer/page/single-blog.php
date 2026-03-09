@@ -10,7 +10,7 @@ $wp_customize->add_section(
 );
 
 
-$context_blog_post_taxonomy_arrays = array( __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ) );
+$context_blog_post_taxonomy_arrays = array( __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ),__( 'word', 'context-blog' ) );
 foreach ( $context_blog_post_taxonomy_arrays as  $context_blog_post_taxonomy ) {
 
 	$wp_customize->add_setting(

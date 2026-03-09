@@ -164,7 +164,7 @@ $wp_customize->add_control(
 	)
 );
 
-$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ), __( 'excerpt', 'context-blog' ) );
+$context_blog_post_taxonomy_arrays = array( __( 'category', 'context-blog' ), __( 'meta', 'context-blog' ), __( 'date', 'context-blog' ), __( 'comment', 'context-blog' ),  __( 'word', 'context-blog' ),__( 'excerpt', 'context-blog' ) );
 foreach ( $context_blog_post_taxonomy_arrays as  $context_blog_post_taxonomy ) {
 
 	$wp_customize->add_setting(

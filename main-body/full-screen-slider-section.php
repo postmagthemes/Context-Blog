@@ -5,6 +5,7 @@ function context_blog_home_full_screen_slider_enable() {
 	$show_meta      = get_theme_mod( 'context_blog_fullscreen_slider_' . __( 'meta', 'context-blog' ), 1 );
 	$show_date      = get_theme_mod( 'context_blog_fullscreen_slider_' . __( 'date', 'context-blog' ), 1 );
 	$show_comment   = get_theme_mod( 'context_blog_fullscreen_slider_' . __( 'comment', 'context-blog' ), 1 );
+	$show_wordcount = get_theme_mod( 'context_blog_fullscreen_slider_' . __( 'word', 'context-blog' ), 1 );
 	$show_excerpt   = get_theme_mod( 'context_blog_fullscreen_slider_' . __( 'excerpt', 'context-blog' ), 1 );
 	$show_readmore  = get_theme_mod( 'context_blog_fullscreen_slider_readmore', 1 );
 	$show_modal     = get_theme_mod( 'context_blog_modal_popup_enable', 1 );
@@ -29,7 +30,7 @@ function context_blog_home_full_screen_slider_enable() {
 			<?php
 			while ( $blogsloop->have_posts() ) :
 				$blogsloop->the_post();
-				context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal );
+				context_blog_content_core( $section_number, $show_category, $show_meta, $show_date, $show_comment, $show_excerpt, $show_readmore, $show_modal,$show_wordcount );
 			endwhile;
 			wp_reset_postdata(); 
 		?> </div>
