@@ -1,16 +1,23 @@
-
 /*==================================
     Customizer CSS
-====================================*/ 
+====================================*/
 
 .customize-control-lable {
     margin: 10px 0;
     text-decoration: underline;
 
 }
+
 #customize-controls h3.customize-control-lable {
     font-size: 16px;
 }
+
 #sub-accordion-section-header_image .description.customize-section-description {
     display: none;
+}
+
+#customize-control-external_header_video .customize-control-title {
+    font-size: 13px !important;
+    font-weight: inherit !important;
+    font-style: italic !important;
 }

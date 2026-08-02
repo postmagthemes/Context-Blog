@@ -95,6 +95,8 @@ function context_blog_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
+	add_theme_support( 'post-formats', array('video', 'iframe'));
+
 	/**
 	 * Add support for core custom logo.
 	 *
@@ -252,6 +254,7 @@ function context_blog_scripts() {
 		'context_object',
 		array(
 			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'context_blog_nonce' ),
 		)
 	);
 
@@ -399,3 +402,15 @@ function context_blog_catname_replaced() {
 add_action('after_setup_theme', 'context_blog_catname_replaced');
 // after_switch_theme does not fire when verison upgrade, switch_theme also no work
 // after_setup_theme always fire when site loaded
+
+function blink_context_blog_get_embedded_media( $type = array() ) {
+	$content = apply_filters( 'the_content', get_the_content() );
+	$embed = get_media_embedded_in_content( $content, $type );
+	if (! $embed == null) {
+		esc_attr( $output = str_replace( '?visual=true', '?visual=false', $embed[0] ) );
+	} else {
+		
+		$output = null;
+	}
+	return $output ;
+}

@@ -1,5 +1,11 @@
 <?php
 function context_blog_modal_popup() {
+
+    // 1. At the top of your AJAX handler, verify it before doing anything
+    if ( ! check_ajax_referer( 'context_blog_nonce', 'nonce', false ) ) {
+        wp_send_json_error( array( 'message' => __( 'Security check failed.', 'context-blog' ) ) );
+        die();
+    }
     $postId = isset( $_POST['postID'] ) ? intval( $_POST['postID'] ) : 0;
     if ( ! $postId ) {
         wp_send_json_error( array( 'message' => __( 'Invalid post ID.', 'context-blog' ) ) );
@@ -12,6 +18,11 @@ function context_blog_modal_popup() {
         die();
     }
 
+    // block access to password-protected posts
+    if ( post_password_required( $content_post ) ) {
+        wp_send_json_error( array( 'message' => __( 'Password protected. Please view in detail to enter password ', 'context-blog' ) ) );
+        die();
+    }
     // Only allow published posts for unauthenticated users
     if ( 'publish' !== $content_post->post_status ) {
         if ( ! current_user_can( 'edit_post', $postId ) ) {

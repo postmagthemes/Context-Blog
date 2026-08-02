@@ -314,7 +314,7 @@ jQuery(document).ready(
             if (targetclass3.length > 0) {
                 if (isElementInViewport(targetclass3)) {
                     const scrollPosition3 = window.scrollY;
-                    jQuery(".custom-header").css({ "transform": 'scale(' + (1 + (scrollPosition3 * 0.0009)) + ',' + (1 + (scrollPosition3 * 0.0009)) + ')' });
+                    jQuery(".custom-header.no-video").css({ "transform": 'scale(' + (1 + (scrollPosition3 * 0.0009)) + ',' + (1 + (scrollPosition3 * 0.0009)) + ')' });
 
                 }
             }
@@ -436,9 +436,6 @@ var findInsiders = function (elem) {
             lastTabbable.focus();
         }
     });
-
-
-
 };
 
 function openNav() {
@@ -451,3 +448,59 @@ function closeNav() {
     jQuery(".sidepanel-button-1").focus();
 }
 
+// auto play youtube video
+jQuery(function ($) {
+    var $window1 = $(window);
+    var iframeLength1 = $('.autoplay iframe').length
+    // var videoHeight1 = $video1.outerHeight();
+    $window1.on('load', function () {
+        for (var i = 0; i < iframeLength1; i++) {
+            $(".autoplay iframe")[i].src += '&autoplay=1&end=30&mute=1';
+        }
+
+    });
+});
+
+/* auto run own video autoplay in homepage */
+jQuery(function ($) {
+    var $window1 = $(window);
+    $window1.on('load', function () {
+        var vid = document.querySelector(".autoplay video");
+        if (!vid) return;
+
+        // Ensure browser allows autoplay
+        vid.muted = true;
+        vid.playsInline = true;
+        vid.setAttribute('muted', '');
+        vid.setAttribute('playsinline', '');
+        vid.setAttribute('autoplay', '');
+
+        // try to play and fallback to user interaction if blocked
+        var playPromise = vid.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function () {
+                var startOnInteraction = function () {
+                    vid.muted = true;
+                    vid.play().catch(function () { });
+                    document.removeEventListener('click', startOnInteraction);
+                    document.removeEventListener('touchstart', startOnInteraction);
+                };
+                document.addEventListener('click', startOnInteraction, { once: true });
+                document.addEventListener('touchstart', startOnInteraction, { once: true });
+            });
+        }
+
+        // loop behavior: reset when >= 15s
+        vid.addEventListener('timeupdate', function () {
+            if (vid.currentTime >= 15) {
+                vid.currentTime = 0;
+                vid.play().catch(function () { });
+            }
+        });
+
+        // ensure it's playing
+        if (vid.paused) {
+            vid.play().catch(function () { });
+        }
+    });
+});

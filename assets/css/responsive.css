@@ -91,6 +91,21 @@
         visibility: visible;
         transition: visibility 0s linear 0.3s;
     }
+
+    .main-blog .col-lg-12 {
+        max-width: 70%;
+        margin: auto;
+    }
+
+    .col-lg-12 .single-blog>.blog-snippet iframe {
+        height: 401px;
+        width: 100%;
+    }
+
+    .single-blog>.blog-snippet iframe {
+        height: 385px;
+        width: 100%;
+    }
 }
 
 @media (max-width: 1200px) {

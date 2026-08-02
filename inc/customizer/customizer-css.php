@@ -186,7 +186,7 @@ function context_blog_color_font_css() {
 			.editor-styles-wrapper h1 {
 				font-family : ' . esc_attr( $context_blog_posttitle_font_family ) . '; 
 			}
-			.editor-styles-wrapper * { 
+			.editor-styles-wrapper *:not(.fa-regular, .far, .fas, .fa) { 
 				font-family : ' . esc_attr( $context_blog_paragraph_font_family ) . '; 
 				line-height: 1.8;
 			}

@@ -31,6 +31,21 @@ context-blog includes support for WooCommerce.
 
 == Changelog ==
 
+= 1.3.7 - need to upload  =
+* fetchpriority high added for adv, list-view img width set, css quote added,
+fontawesome overide in eidtor is prevented
+
+= 1.3.6 - may 21 2026  =
+* content width in main blog with no sidebar decreased, 
+password protect post read via modal stoped, video format support.
+
+= 1.3.5 - may 12 2026  =
+* customizer label css changed for blink header, fade-up css modified,
+card slider post title height maintain, blink settting applied
+
+= 1.3.4 - April 8 2026  =
+* scroll for video header is disabled
+
 = 1.3.3 - march 8 2026  =
 footer word count customizer bug fixed, single page detail wordcount bug fixed
 

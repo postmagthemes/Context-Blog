@@ -89,8 +89,14 @@ function context_blog_content_core( $section, $category, $meta, $date, $comment,
 			endif;
 		elseif ( $section == 20 or $section == 23 or $section == 24 ) :
 			$context_blog_word_limit = get_theme_mod( 'context_blog_main_blog_excerpt_limit', 22 );
-			if ( has_post_thumbnail() ) :
-				?>
+			if ( has_post_format( 'video' ) ) {
+				?><div class="autoplay"><?php
+				echo blink_context_blog_get_embedded_media( array('video','iframe') );
+				?></div><?php
+
+			}
+			else {
+				if ( has_post_thumbnail() ) :?>
 				<a href="<?php the_permalink(); ?>" class="img-holder" aria-label='<?php the_title(); ?>'>
 					<?php
 					if ( get_theme_mod( 'context_blog_main_blog_design', 2 ) == 1 || ( get_theme_mod( 'context_blog_main_blog_design', 2 ) == 2 and $context_blog_count_mainblog == 1 ) ) :
@@ -100,8 +106,9 @@ function context_blog_content_core( $section, $category, $meta, $date, $comment,
 					endif;
 					?>
 				</a>
-				<?php
-			endif;
+				<?php endif;
+			}
+			
 		elseif ( $section == 21 ) :
 			if ( has_post_thumbnail() ) :
 				?>

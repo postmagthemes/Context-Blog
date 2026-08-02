@@ -59,7 +59,7 @@
 					<div class= "advertise">
 						<a href="<?php echo esc_url( get_theme_mod( 'context_blog_top_header_ads_image_url' ) ); ?>" target = "_blank">
 							<img width = "<?php echo esc_attr( $context_blog_image_width ); ?>" height="<?php echo esc_attr( $context_blog_image_height ); ?>"  src="<?php echo esc_url( context_blog_headerAdv_image_url() ); ?> " 
-							alt="<?php echo esc_html( get_post_meta( attachment_url_to_postid( context_blog_headerAdv_image_url() ), '_wp_attachment_image_alt', true ) ); ?>">
+							fetchpriority="high" alt="<?php echo esc_html( get_post_meta( attachment_url_to_postid( context_blog_headerAdv_image_url() ), '_wp_attachment_image_alt', true ) ); ?>">
 						</a>
 
 					</div>
